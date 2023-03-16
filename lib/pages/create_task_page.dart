@@ -89,7 +89,7 @@ class CreateTaskItemView extends StatelessWidget {
       ),
       Selector<CreateTaskBloc,DateTime>(
           selector: (_,selector)=> selector.getDateTime,
-          builder: (_,dateTime,__)=> DateAndTimeItemView(dateTime: dateTime,)),
+          builder: (_,dateTime,__)=>  DateAndTimeItemView(dateTime: dateTime,)),
       SaveButtonView(globalKey: globalKey,),
     ]);
   }

@@ -25,7 +25,7 @@ class EasyText extends StatelessWidget {
         fontSize: fontSize,
         fontWeight: fontWeight,
         color: fontColor,
-        decoration: decoration
+        decoration: decoration,
       ),
     );
   }

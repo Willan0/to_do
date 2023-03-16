@@ -13,7 +13,7 @@ class TitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Row(
       children: [
-        EasyText(data: title,fontSize: kFi25x,),
+        EasyText(data: title,fontSize: kFi20x,),
         const Spacer(),
         trailingWidget
       ],

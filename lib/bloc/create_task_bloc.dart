@@ -44,6 +44,16 @@ class CreateTaskBloc extends ChangeNotifier{
   // state instance
   final FireBaseDataApply _dataApply = FireBaseDataApplyImpl();
 
+  void setTime(DateTime? dateTime,TimeOfDay? timeOfDay){
+    if(timeOfDay!=null && dateTime != null){
+      _dateTime =dateTime;
+      var temp = _dateTime;
+      _time = DateFormat.jm().format(DateTime(
+          temp.year,temp.month,temp.day,
+          timeOfDay.hour,timeOfDay.minute,temp.second));
+      notifyListeners();
+    }
+  }
   void setDateTime(DateTime? dateTime){
     if(dateTime!= null){
       _dateTime = dateTime;
@@ -59,13 +69,16 @@ class CreateTaskBloc extends ChangeNotifier{
         _titleController = TextEditingController(text: _taskVO?.title);
         _descriptionController = TextEditingController(text: _taskVO?.description);
         _noteController = TextEditingController(text: _taskVO?.note);
+        _date = _taskVO?.date ?? '';
+        _time = _taskVO?.time ?? '';
       });
 
     }
-    _date = DateFormat.yMMMd().format(_dateTime);
-    _time = DateFormat.jm().format(_dateTime);
-    notifyListeners();
-
+    if(_taskVO== null){
+      _date = DateFormat.yMMMd().format(_dateTime);
+      _time = DateFormat.jm().format(_dateTime);
+      notifyListeners();
+    }
 
   }
 

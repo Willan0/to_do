@@ -88,9 +88,13 @@ class HomePageItemView extends StatelessWidget {
             },
           ),),
         const SizedBox(height: kMp20x,),
-        EasyText(data: taskVO.description ?? ''),
+        Text(taskVO.description ?? '',maxLines: 2,overflow: TextOverflow.ellipsis,style: const TextStyle(
+          fontSize: kFi14x,
+          color: cBlackShadow,
+        ),),
         const SizedBox(height: kMp10x,),
-        EasyText(data: taskVO.note ?? ""),
+        EasyText(data: 'note : ${taskVO.note ?? ""}'),
+        const SizedBox(height: kMp10x,),
         DateTimeWidget(date: taskVO.date ??'',time: taskVO.time?? '',),
       ],
     );

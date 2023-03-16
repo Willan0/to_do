@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
  getWidth(context) => MediaQuery.of(context).size.width;
  getHeight(context) => MediaQuery.of(context).size.height;
  const double kWh100x = 100;
+ const double kWh50x = 50;
+ const double kWh300x = 300;
  const double kWh20x = 20;
  const double kWh10x = 10;
  // Radius

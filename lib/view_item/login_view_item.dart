@@ -42,7 +42,7 @@ class LoginItemView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: kMp20x),
         child: Center(
           child: SizedBox(
-            width: 300,
+            width: kWh300x,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -53,7 +53,7 @@ class LoginItemView extends StatelessWidget {
                 // title
                 EasyText(
                   data: title,
-                  fontSize: 35,
+                  fontSize: kFi30x,
                   fontWeight: FontWeight.bold,
                   fontColor: cWhite,
                 ),
@@ -86,7 +86,7 @@ class LoginItemView extends StatelessWidget {
                   decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.people),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(kRi10x),
                           borderSide: const BorderSide(color: cWhite)),
                       label: const Text('Username'),
                       labelStyle: const TextStyle(color: cWhiteShadow)),
@@ -116,12 +116,12 @@ class LoginItemView extends StatelessWidget {
                               getVisibility
                                   ? Icons.visibility_off
                                   : Icons.visibility,
-                              color: Colors.black,
+                              color: cBlack,
                             ),
                             onPressed: () =>
                                 context.getLoginBlocInstance().setVisibility()),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(kRi10x),
                             borderSide: const BorderSide(color: cWhite)),
                         label: const Text(
                           'Password',
@@ -167,7 +167,7 @@ class LoginItemView extends StatelessWidget {
                                       .getLoginBlocInstance()
                                       .setVisibility()),
                               border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(kRi10x),
                                   borderSide: const BorderSide(color: cWhite)),
                               label: const Text(
                                 'Confirm password',
@@ -184,7 +184,7 @@ class LoginItemView extends StatelessWidget {
                 // SingIn SignUp Button
                 TextButton(
                   style: TextButton.styleFrom(
-                      fixedSize: Size(getWidth(context), 50),
+                      fixedSize: Size(getWidth(context), kWh50x),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(kMp20x),
                           side: const BorderSide(color: cWhite))),
@@ -215,14 +215,14 @@ class LoginItemView extends StatelessWidget {
                                 text: 'Do not have an account? ',
                                 style: TextStyle(
                                     color: cPrimaryTextColor,
-                                    fontSize: 20,
+                                    fontSize: kFi20x,
                                     fontWeight: FontWeight.w400),
                                 children: [
                               TextSpan(
                                 text: 'Create',
                                 style: TextStyle(
                                     color: Colors.cyan,
-                                    fontSize: 20,
+                                    fontSize: kFi20x,
                                     fontWeight: FontWeight.bold),
                               )
                             ])),
@@ -236,14 +236,14 @@ class LoginItemView extends StatelessWidget {
                                 text: ' Have an account? ',
                                 style: TextStyle(
                                     color: cPrimaryTextColor,
-                                    fontSize: 20,
+                                    fontSize: kFi20x,
                                     fontWeight: FontWeight.w400),
                                 children: [
                               TextSpan(
                                 text: 'Sing In',
                                 style: TextStyle(
                                     color: Colors.cyan,
-                                    fontSize: 20,
+                                    fontSize: kFi20x,
                                     fontWeight: FontWeight.bold),
                               )
                             ])),

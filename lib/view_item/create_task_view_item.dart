@@ -43,6 +43,7 @@ class NoteItemView extends StatelessWidget {
               maxLines: maxLine,
               onChanged: (text){
                 context.getCreateTaskBlocInstance().setEdit();
+                // context.getCreateTaskBlocInstance().setTime(selectTime);
               },
               decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -55,31 +56,11 @@ class NoteItemView extends StatelessWidget {
   }
 }
 
-class DateAndTimeItemView extends StatefulWidget {
+class DateAndTimeItemView extends StatelessWidget {
   const DateAndTimeItemView({Key? key, required this.dateTime}) : super(key: key);
-
   final DateTime dateTime;
-
-  @override
-  State<DateAndTimeItemView> createState() => _DateAndTimeItemViewState();
-}
-
-class _DateAndTimeItemViewState extends State<DateAndTimeItemView> {
   @override
   Widget build(BuildContext context) {
-    TimeOfDay timeOfDay = TimeOfDay.now();
-
-    void setTime (){
-      showTimePicker(context: context, initialTime: TimeOfDay.now()).then((value) {
-          setState(() {
-            if(value!= null){
-              timeOfDay = value;
-            }
-            print('============================> ${timeOfDay.format(context)}');
-          });
-      });
-    }
-
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -96,11 +77,19 @@ class _DateAndTimeItemViewState extends State<DateAndTimeItemView> {
           });
         }, child:  Text(context.getCreateTaskBlocInstance().getDate)),
          const Spacer(),
-        TextButton(onPressed:()=> setTime(), child:  Text(timeOfDay.format(context).toString())),
+        TextButton(onPressed:(){
+          showTimePicker(context: context, initialTime: TimeOfDay.now())
+              .then((value) {
+            DateTime dateTime = DateTime.now();
+           context.getCreateTaskBlocInstance().setTime(dateTime, value);
+            context.getCreateTaskBlocInstance().setEdit();
+          });
+        }, child:  Text(context.getCreateTaskBlocInstance().getTime)),
       ],
     );
   }
 }
+
 class SaveButtonView extends StatelessWidget {
   const SaveButtonView({
     Key? key, required this.globalKey,
